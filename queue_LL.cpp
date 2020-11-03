@@ -20,22 +20,24 @@ public:
     };
 
     void Enqueue(int element){
-        if (front == NULL)
+        NODE *new_node = new NODE;
+        if (new_node != NULL)
         {
-            NODE *new_node = new NODE;
-            new_node->data = element;
-            front = rear = new_node;
-            new_node->next = NULL;
-            cout<<"Enqueue element "<<new_node->data<<endl;
-        }
-        else
-        {
-            NODE *new_node = new NODE;
-            new_node->data = element;
-            rear->next = new_node;
-            rear = new_node;
-            new_node->next = NULL;
-            cout<<"Enqueue element "<<new_node->data<<endl;
+            if (front == NULL)
+            {
+                new_node->data = element;
+                front = rear = new_node;
+                new_node->next = NULL;
+                cout<<"Enqueue element "<<new_node->data<<endl;
+            }
+            else
+            {
+                new_node->data = element;
+                rear->next = new_node;
+                rear = new_node;
+                new_node->next = NULL;
+                cout<<"Enqueue element "<<new_node->data<<endl;
+            }
         }
     }
     void Dequeue(){
